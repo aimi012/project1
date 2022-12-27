@@ -5,6 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        html {
+            font-size: 10px;
+            color: #4e4d4d;
+        }
+        main {
+            max-width: 50em;
+            margin: 0 auto;
+            background: linear-gradient(#3dc0c0, #5bceae);
+            padding: 3rem 1.6rem 6rem 1.6rem;
+            border-radius: 4rem;
+            box-shadow: 0 2px 2px lightgray;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+    </style>
   </head>
   <body>
     <main>
@@ -25,7 +46,28 @@
             <span>Tip</span>
             <span id="tipValue"></span>
         </div>
-        
+        <hr>
+        <div class="">
+            <span>Total</span>
+            <span id="totalWithTip"></span>
+        </div>
+        <section>
+            <div class="">
+                <div class="">
+                    <label for="spiltInput">Split</label>
+                    <span id="splitValue">1</span>
+                </div>
+                <input type="range" min="1" max="10" value="1" id="splitInput"> 
+            </div>
+            <div class="">
+                <span>Bill each</span>
+                <span id="billEach"></span>
+            </div>
+            <div class="">
+                <span>Tip each</span>
+                <span id="tip"></span>
+            </div>
+        </section>
       </section>
     </main>
   </body>
