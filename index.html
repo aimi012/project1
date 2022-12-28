@@ -86,7 +86,7 @@
     </style>
   </head>
   <body>
-    <main>
+    <main id="container">
       <h1>Quick Tip</h1>
       <section>
         <div class="bill">
@@ -114,13 +114,13 @@
             <div class="">
                 <div class="space-between">
                     <label for="spiltInput">Split</label>
-                    <span id="splitValue">1</span>
+                    <span id="splitValue">Person</span>
                 </div>
                 <input class="range" type="range" min="1" max="10" value="1" id="splitInput"> 
             </div>
             <div class="">
                 <span>Bill each</span>
-                <span id="billEach"></span>
+                <span id="billEach">0</span>
             </div>
             <div class="">
                 <span>Tip each</span>
@@ -129,5 +129,36 @@
         </section>
       </section>
     </main>
+    <script>
+        function formatMoney(value) {
+            value = value.toFixed(2)
+            return 'Rm ' + value
+        }
+        function update() {
+            let bill = Number(document.getElementById('yourBill').value);
+            let tipInput = document.getElementById('tipInput').value;
+            let split = document.getElementById('splitInput').value
+
+            let tipPercent = document.getElementById('tipPercent');
+            let splitValue = document.getElementById('splitValue')
+            let billpercent = Math.floor(bill * (tipInput/100));
+            let tipValue = document.getElementById('tipValue')
+            let billEach = (bill+billpercent) / split;
+            let billEacht = document.getElementById('billEach')
+            let totalWithTip =document.getElementById('totalWithTip')
+            let tip = document.getElementById('tip')
+            
+            tip.textContent = formatMoney(billpercent / split)
+            totalWithTip.textContent = formatMoney(bill + billpercent)
+            tipValue.textContent = formatMoney(billpercent);
+            console.log(bill, tipInput, split);
+            splitValue.textContent = split + " person"
+            tipPercent.textContent = tipInput + '%'
+            billEacht.textContent = formatMoney(billEach);
+        }
+
+        let con = document.getElementById('container');
+        con.addEventListener('input', update);
+    </script>
   </body>
 </html>
